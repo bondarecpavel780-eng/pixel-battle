@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Art Challenge</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Ліва панель, управління -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Pixel Battle</h1>
+                <p>Draw a copy (64x64)</p>
+            </div>
+
+            <!-- Вибір рівня складності -->
+            <div class="level-selector">
+                <label for="levelSelect" class="level-label">Difficulty:</label>
+                <div class="level-controls">
+                    <select id="levelSelect" class="custom-select">
+                        <option value="easy">Easy (Basic shapes)</option>
+                        <option value="medium">Medium (Detailed)</option>
+                        <option value="hard">Hard (Complex)</option>
+                    </select>
+                    <button id="loadLevelBtn" class="btn primary load-btn">Load</button>
+                </div>
+            </div>
+
+            <div class="reference-wrapper">
+                <!-- Полотно еталону -->
+                <canvas id="referenceCanvas" width="64" height="64"></canvas>
+            </div>
+
+            <div class="controls">
+                <div id="scoreDisplay" class="score-board">Accuracy: <span>0.0%</span></div>
+                <button id="checkBtn" class="btn primary">Check</button>
+                <button id="nextBtn" class="btn secondary">Change Image</button>
+            </div>
+        </aside>
+
+        <!-- Центральна частина: Робоча зона -->
+        <main class="workspace">
+            <!-- Панель інструментів над полотном -->
+            <div class="toolbar">
+                <div class="tools-group">
+                    <button id="toolBrush" class="tool-btn active" title="Brush">🖌️</button>
+                    <button id="toolFill" class="tool-btn" title="Fill">🪣</button>
+                    <button id="toolEraser" class="tool-btn" title="Eraser">🧼</button>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Вибір розміру пензля -->
+                <div class="brush-sizes" id="brushSizes">
+                    <button class="size-btn active" data-size="1" title="1x1">1</button>
+                    <button class="size-btn" data-size="2" title="2x2">2</button>
+                    <button class="size-btn" data-size="3" title="3x3">3</button>
+                    <button class="size-btn" data-size="5" title="5x5">5</button>
+                </div>
+
+                <div class="divider"></div>
+                <button id="clearBtn" class="tool-btn danger" title="Clear Canvas">🗑️</button>
+            </div>
+
+            <!-- Головне полотно гравця -->
+            <div class="canvas-wrapper">
+                <canvas id="userCanvas" width="64" height="64"></canvas>
+            </div>
+        </main>
+    </div>
+
+    <!-- Нижня панель: Палітра кольорів -->
+    <footer class="palette-container">
+        <span class="palette-label">Level Palette:</span>
+        <div id="palette" class="palette">
+            <!-- JS буде автоматично генерувати тут кнопки -->
+        </div>
+    </footer>
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

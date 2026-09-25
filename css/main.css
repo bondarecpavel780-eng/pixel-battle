@@ -1,0 +1,32 @@
+@import url('./layout.css');
+@import url('./ui.css');
+
+/* Кореневі змінні для кольорів та розмірів */
+:root {
+    --bg-color: #1a1a24;
+    --panel-bg: #232333;
+    --border-color: #38384d;
+    --text-main: #f0f0f5;
+    --text-muted: #9a9ab5;
+    --accent-green: #00e676;
+    --accent-hover: #00c853;
+    --danger-color: #ff5252;
+    --canvas-size: 512px;
+}
+
+/* Базове скидання стилів */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Забороняємо прокрутку сторінки */
+}
