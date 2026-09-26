@@ -33,26 +33,38 @@
             <div class="reference-wrapper">
                 <!-- Полотно еталону -->
                 <canvas id="referenceCanvas" width="64" height="64"></canvas>
+                <!-- Елемент лупи -->
+                <div id="loupe" class="loupe"></div>
             </div>
 
             <div class="controls">
                 <div id="scoreDisplay" class="score-board">Accuracy: <span>0.0%</span></div>
                 <button id="checkBtn" class="btn primary">Check</button>
-                <button id="nextBtn" class="btn secondary">Change Image</button>
+                <button id="nextBtn" class="btn secondary" disabled>Change Image</button>
             </div>
         </aside>
 
         <!-- Центральна частина: Робоча зона -->
         <main class="workspace">
+            <div class="hint-text">Підказка: білі клітинки фону можна не замальовувати — вони зарахуються автоматично!
+            </div>
+
             <!-- Панель інструментів над полотном -->
             <div class="toolbar">
                 <div class="tools-group">
                     <button id="toolBrush" class="tool-btn active" title="Brush">🖌️</button>
-                    <button id="toolFill" class="tool-btn" title="Fill">🪣</button>
                     <button id="toolEraser" class="tool-btn" title="Eraser">🧼</button>
                 </div>
 
                 <div class="divider"></div>
+                <!-- =Перемикач підказки (розташується справа) -->
+                <div class="hint-toggle-container">
+                    <span class="toggle-label">Show Hint</span>
+                    <label class="switch">
+                        <input type="checkbox" id="hintToggle" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
 
                 <!-- Вибір розміру пензля -->
                 <div class="brush-sizes" id="brushSizes">
@@ -68,6 +80,7 @@
 
             <!-- Головне полотно гравця -->
             <div class="canvas-wrapper">
+                <img id="ghostImage" class="ghost-stencil" alt="">
                 <canvas id="userCanvas" width="64" height="64"></canvas>
             </div>
         </main>
@@ -77,7 +90,7 @@
     <footer class="palette-container">
         <span class="palette-label">Level Palette:</span>
         <div id="palette" class="palette">
-            <!-- JS буде автоматично генерувати тут кнопки -->
+            <!-- Кнопки генеруються скриптом -->
         </div>
     </footer>
 

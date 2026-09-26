@@ -1,7 +1,6 @@
 @import url('./layout.css');
 @import url('./ui.css');
 
-/* Кореневі змінні для кольорів та розмірів */
 :root {
     --bg-color: #1a1a24;
     --panel-bg: #232333;
@@ -14,7 +13,6 @@
     --canvas-size: 512px;
 }
 
-/* Базове скидання стилів */
 * {
     margin: 0;
     padding: 0;
@@ -28,5 +26,5 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Забороняємо прокрутку сторінки */
+    overflow: hidden;
 }
