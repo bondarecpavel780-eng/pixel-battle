@@ -22,6 +22,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const hintToggle = document.getElementById('hintToggle');
     const ghostImage = document.getElementById('ghostImage');
 
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    // завантаження малюнка 
+    downloadBtn.addEventListener('click', () => {
+    // Задаємо множник масштабу (8 * 64 = 512px)
+    const scale = 16; 
+    
+    // Створюємо тимчасове віртуальне полотно потрібного розміру
+    const exportCanvas = document.createElement('canvas');
+    exportCanvas.width = userCanvas.width * scale;
+    exportCanvas.height = userCanvas.height * scale;
+    
+    const exportCtx = exportCanvas.getContext('2d');
+    
+    // вимикаємо розмиття, щоб зберегти чіткість піксель-арту
+    exportCtx.imageSmoothingEnabled = false;
+    
+    // Малюємо наш 64x64 малюнок на новому полотні, розтягуючи його
+    exportCtx.drawImage(userCanvas, 0, 0, exportCanvas.width, exportCanvas.height);
+    
+    // Завантажуємо 
+    const link = document.createElement('a');
+    link.download = 'my-pixel-art.png';
+    link.href = exportCanvas.toDataURL('image/png');
+    link.click();
+});
+
     hintToggle.addEventListener('change', (e) => {
         if (e.target.checked) {
             ghostImage.classList.remove('hidden'); // Показуємо

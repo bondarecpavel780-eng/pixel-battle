@@ -1,5 +1,5 @@
 export function initLoupe(canvasElement, loupeElement) {
-    const zoomLevel = 2;
+    const zoomLevel = 4;
     const wrapper = canvasElement.parentElement;
 
     loupeElement.style.pointerEvents = 'none';
